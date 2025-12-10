@@ -1,0 +1,295 @@
+/* --- Variables & Reset --- */
+:root {
+    /* Updated Primary Color to match a "Joe" style purple/blue, or keep standard blue */
+    --primary-color: #7A28CB; /* A vibrant purple based on reference image */
+    --secondary-color: #1a1a1a;
+    --text-color: #555;
+    --heading-color: #222;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --dark-bg: #111;
+    --font-main: 'Jost', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width: 100%; display: block; }
+
+/* --- Typography --- */
+h1, h2, h3 { color: var(--heading-color); font-weight: 700; line-height: 1.2; }
+.sub-title {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section { padding: 100px 0; }
+.bg-light { background-color: var(--light-bg); }
+.bg-dark { background-color: var(--dark-bg); color: white; }
+.text-center { text-align: center; }
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    border-radius: 8px; /* Rounded corners like reference */
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 5px 15px rgba(122, 40, 203, 0.3);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(122, 40, 203, 0.4); }
+
+.btn-outline {
+    border-color: #ccc;
+    color: var(--heading-color);
+    background: transparent;
+    margin-left: 15px;
+}
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* --- Navbar --- */
+.navbar {
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.8rem; font-weight: 800; color: var(--heading-color); }
+.nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+.nav-links a { font-weight: 500; font-size: 1rem; color: var(--heading-color); }
+.nav-links a:hover { color: var(--primary-color); }
+.btn-nav { padding: 10px 25px; background: var(--primary-color); color: white !important; border-radius: 6px; }
+.hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+/* --- HERO SECTION (Updated for "Joe" Look) --- */
+.hero-section {
+    padding-top: 120px; /* Space for fixed nav */
+    padding-bottom: 50px;
+    min-height: 100vh; /* Full height */
+    display: flex;
+    align-items: center;
+    /* Soft gradient background like reference */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Hero Text Side */
+.hero-text {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-text .greeting {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    color: var(--heading-color);
+}
+
+.hero-text .role {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.social-links-hero {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+.social-links-hero a {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #e1e1e1;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--heading-color);
+}
+.social-links-hero a:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Hero Image Side (The "Joe" Cutout Style) */
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Align right */
+    position: relative;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 550px; /* Big, impressive image */
+    height: auto;
+    object-fit: contain;
+    /* No border-radius or shadow here, assuming you use a transparent PNG */
+    /* If you use a square photo, uncomment below to make it a soft square */
+    /* border-radius: 20px; */ 
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); /* Subtle shadow BEHIND the person */
+}
+
+/* --- About & Stats --- */
+.stats-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+.stat-box h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 5px; }
+.stat-box p { font-size: 0.9rem; font-weight: 500; }
+
+/* --- Skills Grid --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.skill-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: var(--transition);
+}
+.skill-card:hover { transform: translateY(-5px); }
+.icon-circle {
+    width: 70px; height: 70px;
+    background: rgba(122, 40, 203, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 20px;
+}
+
+/* --- Portfolio --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+.portfolio-item { position: relative; cursor: pointer; }
+.portfolio-thumb {
+    border-radius: 10px; overflow: hidden; position: relative; margin-bottom: 15px;
+}
+.portfolio-thumb img { width: 100%; transition: var(--transition); }
+.portfolio-thumb:hover img { transform: scale(1.05); }
+.overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(122, 40, 203, 0.85);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: var(--transition);
+}
+.portfolio-thumb:hover .overlay { opacity: 1; }
+.btn-icon {
+    width: 50px; height: 50px; background: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--primary-color);
+}
+.portfolio-info span { font-size: 0.8rem; font-weight: 700; color: var(--primary-color); }
+
+/* --- Contact Section --- */
+.contact-container { display: flex; gap: 60px; align-items: center; }
+.contact-info { flex: 1; }
+.contact-form-wrapper { flex: 1; background: #222; padding: 40px; border-radius: 15px; }
+.form-input {
+    width: 100%; padding: 15px; margin-bottom: 15px;
+    background: #333; border: 1px solid #444; color: white;
+    border-radius: 5px; font-family: inherit;
+}
+.form-input:focus { outline: none; border-color: var(--primary-color); }
+.info-row { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.icon-small { color: var(--primary-color); font-size: 1.2rem; }
+
+/* --- Footer --- */
+footer { background: #000; color: #777; padding: 40px 0; border-top: 1px solid #222; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; }
+.socials a { color: #777; margin-left: 20px; font-size: 1.2rem; transition: var(--transition); }
+.socials a:hover { color: var(--primary-color); }
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 992px) {
+    .hero-container { flex-direction: column-reverse; text-align: center; }
+    .hero-text { padding-right: 0; margin-top: 40px; }
+    .hero-image-wrapper { justify-content: center; width: 100%; }
+    .profile-image { max-width: 400px; }
+    .hero-text h1 { font-size: 2.8rem; }
+    .contact-container { flex-direction: column; }
+    .social-links-hero { justify-content: center; }
+    .stats-row { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .hero-section { padding-top: 100px; }
+    .btn { display: block; width: 100%; margin: 10px 0; }
+    .btn-outline { margin-left: 0; }
+    .footer-content { flex-direction: column; gap: 20px; }
+    .socials a { margin: 0 10px; }
+}
